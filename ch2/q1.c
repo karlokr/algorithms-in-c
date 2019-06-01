@@ -1,9 +1,10 @@
 #include <stdio.h>
+
 int gcd(int u, int v) {
     int t;
     while (u > 0) {
         if (u < v) {
-            t = u; u = v; v = t;
+            t = u; u = v; v = t % u;
         }
         u = u - v;
     }
