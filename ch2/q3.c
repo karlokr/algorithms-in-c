@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-struct fraction {int numerator; int denominator};
+struct fraction {int numerator; int denominator;};
 
 int gcd(int u, int v) {
     int t;
