@@ -31,13 +31,13 @@ struct node *insertafter(int v, struct node *t) {
 int main() {
   listinitialize();
   
-  struct node *first = insertafter('A', head);
-  struct node *second = insertafter('L', first);
-  struct node *third = insertafter('I', second);
-  struct node *fourth = insertafter('S', third);
-  insertafter('T', fourth);
+  t = insertafter('A', head);
+  t = insertafter('L', t);
+  t = insertafter('I', t);
+  t = insertafter('S', t);
+  insertafter('T', t);
   
-  t = first;
+  t = head;
   while(t != t->next) {
     printf("%c ", t->key);
     t = t->next;
