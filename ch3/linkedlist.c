@@ -7,7 +7,7 @@ struct node {
   struct node *next;
 };
 
-struct node *head, *z, *t;
+struct node *head, *z;
 
 void listinitialize() {
   head = (struct node *) malloc(sizeof *head);
@@ -15,7 +15,7 @@ void listinitialize() {
   head->next = z; z->next = z;
 }
 
-void deletenext() {
+void deletenext(struct node *t) {
   t->next = t->next->next;
 }
 
@@ -30,14 +30,14 @@ struct node *insertafter(int v, struct node *t) {
 
 int main() {
   listinitialize();
-  
+  struct node *t;
   t = insertafter('A', head);
   t = insertafter('L', t);
   t = insertafter('I', t);
   t = insertafter('S', t);
   insertafter('T', t);
   
-  t = head;
+  t = head->next;
   while(t != t->next) {
     printf("%c ", t->key);
     t = t->next;

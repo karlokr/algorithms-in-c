@@ -19,7 +19,7 @@ int queueempty() {
 }
 
 void put(int v) {
-  t = (struct node *) malloc(sizeof *t);
+  struct node *t = (struct node *) malloc(sizeof *t);
   t->key = v;
   t->next = head->next;
   head->next = t;
@@ -32,7 +32,6 @@ int get() {
   while (t->next->next != z) {
     t = t->next;
   }
-
   x = t->next->key;
   free(t->next);
   t->next = z;
