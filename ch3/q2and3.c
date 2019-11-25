@@ -14,8 +14,17 @@ void listinitialize() {
   head->next = z; z->next = z;
 }
 
-void deletenext(struct node *t) {
-  t->next = t->next->next;
+void deletenext(struct node *t)
+{
+    struct node *temp = malloc(sizeof *temp);
+    temp->key = t->next->key;
+    temp->next = t->next->next;
+    if (t->next != z)
+    {
+        free(t->next);
+        t->next = temp->next;
+        free(temp);
+    }
 }
 
 struct node *insertafter(int v, struct node *t) {
@@ -68,6 +77,7 @@ int main() {
   
   movenexttofront(b);
   exchange(a, b);
+  deletenext(b);
 
 
   t = head->next;
